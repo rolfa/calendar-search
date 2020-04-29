@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # read/search entries in Jolla calendar db.
@@ -10,6 +10,7 @@
 # version 1.00 31.07.2015  rolfa  first version
 # version 1.01 31.07.2015  rolfa  ordered results
 # version 1.02 03.08.2015  rolfa  raw_input
+# version 1.03 29.04.2020  rolfa  Adapted for Python3
 
 '''
 EXAMPLES
@@ -77,7 +78,7 @@ while True:
         searchtext = sys.argv[1]
         sys.argv[1] = ''
     else:
-        searchtext = raw_input('Searchtext (empty to exit): ')
+        searchtext = input('Searchtext (empty to exit): ')
     
     if not searchtext: break
 
@@ -91,10 +92,10 @@ while True:
     
     for row in rows:
         for el in row:
-            print '%s\t' % el.encode('utf-8'),
+            print('%s\t' % el.encode('utf-8')),
         print
 
-    print 'hits: %s\n' % len(rows)
+    print('hits: %s\n' % len(rows))
 
 try:
   db.close()
